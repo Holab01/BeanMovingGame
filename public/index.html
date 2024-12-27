@@ -152,8 +152,14 @@
 
     // スタートボタンが押されたとき
     startButton.addEventListener("click", () => {
-                socket.emit("startGame"); // サーバーにスタートイベントを通知
-            });
+      socket.emit("startGame"); // サーバーにスタートイベントを通知
+
+      // ボタンの色を黄色に変更
+      startButton.style.backgroundColor = "yellow";
+      startButton.style.color = "black"; // ボタン上のテキストを見やすくするため
+      console.log("スタートボタンが押されました");
+
+    });
 
     // サーバーからのタイマー更新を受け取る
     socket.on("updateTimer", (timeLeft) => {
@@ -162,7 +168,13 @@
 
     // ゲーム終了通知を受け取る
     socket.on("gameEnded", () => {
-        alert("ゲーム終了です！");
+      alert("ゲーム終了です！");
+
+      // ボタンの色を青色に変更
+      startButton.style.backgroundColor = "#007bff";
+      startButton.style.color = "white"; // ボタン上のテキストを見やすくするため
+      console.log("スタートボタンが押されました");
+      
     });
 
       // 出力ボタンを押された時
