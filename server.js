@@ -10,49 +10,50 @@ const io = socketIo(server);
 app.use(express.static("public"));
 
 const beans = [
-    { id: 0, left: 110, top: 110, isGlowing: false, touchedBy: [] },
-    { id: 1, left: 140, top: 260, isGlowing: false, touchedBy: [] },
-    { id: 2, left: 180, top: 300, isGlowing: false, touchedBy: [] },
-    { id: 3, left: 120, top: 400, isGlowing: false, touchedBy: [] },
-    { id: 4, left: 600, top: 250, isGlowing: false, touchedBy: [] },
-    { id: 5, left: 230, top: 350, isGlowing: false, touchedBy: [] },
-    { id: 6, left: 310, top: 270, isGlowing: false, touchedBy: [] },
-    { id: 7, left: 300, top: 300, isGlowing: false, touchedBy: [] },
-    { id: 8, left: 400, top: 450, isGlowing: false, touchedBy: [] },
-    { id: 9, left: 330, top: 410, isGlowing: false, touchedBy: [] },
-    { id: 10, left: 250, top: 220, isGlowing: false, touchedBy: [] },
-    { id: 11, left: 150, top: 480, isGlowing: false, touchedBy: [] },
-    { id: 12, left: 280, top: 430, isGlowing: false, touchedBy: [] },
-    { id: 13, left: 200, top: 330, isGlowing: false, touchedBy: [] },
-    { id: 14, left: 180, top: 470, isGlowing: false, touchedBy: [] },
-    { id: 15, left: 130, top: 360, isGlowing: false, touchedBy: [] },
-    { id: 16, left: 340, top: 350, isGlowing: false, touchedBy: [] },
-    { id: 17, left: 300, top: 120, isGlowing: false, touchedBy: [] },
-    { id: 18, left: 210, top: 290, isGlowing: false, touchedBy: [] },
-    { id: 19, left: 170, top: 110, isGlowing: false, touchedBy: [] },
-    { id: 20, left: 400, top: 430, isGlowing: false, touchedBy: [] },
-    { id: 21, left: 260, top: 420, isGlowing: false, touchedBy: [] },
-    { id: 22, left: 150, top: 100, isGlowing: false, touchedBy: [] },
-    { id: 23, left: 310, top: 380, isGlowing: false, touchedBy: [] },
-    { id: 24, left: 140, top: 240, isGlowing: false, touchedBy: [] },
-    { id: 25, left: 250, top: 460, isGlowing: false, touchedBy: [] },
+    { id: 0, left: 110, top: 349, isGlowing: false, touchedBy: [] },
+    { id: 1, left: 140, top: 584, isGlowing: false, touchedBy: [] },
+    { id: 2, left: 180, top: 445, isGlowing: false, touchedBy: [] },
+    { id: 3, left: 120, top: 117, isGlowing: false, touchedBy: [] },
+    { id: 4, left: 600, top: 189, isGlowing: false, touchedBy: [] },
+    { id: 5, left: 230, top: 528, isGlowing: false, touchedBy: [] },
+    { id: 6, left: 310, top: 401, isGlowing: false, touchedBy: [] },
+    { id: 7, left: 360, top: 208, isGlowing: false, touchedBy: [] },
+    { id: 8, left: 500, top: 388, isGlowing: false, touchedBy: [] },
+    { id: 9, left: 330, top: 462, isGlowing: false, touchedBy: [] },
+    { id: 10, left: 250, top: 312, isGlowing: false, touchedBy: [] },
+    { id: 11, left: 150, top: 135, isGlowing: false, touchedBy: [] },
+    { id: 12, left: 280, top: 593, isGlowing: false, touchedBy: [] },
+    { id: 13, left: 200, top: 257, isGlowing: false, touchedBy: [] },
+    { id: 14, left: 180, top: 565, isGlowing: false, touchedBy: [] },
+    { id: 15, left: 130, top: 476, isGlowing: false, touchedBy: [] },
+    { id: 16, left: 340, top: 144, isGlowing: false, touchedBy: [] },
+    { id: 17, left: 300, top: 562, isGlowing: false, touchedBy: [] },
+    { id: 18, left: 210, top: 220, isGlowing: false, touchedBy: [] },
+    { id: 19, left: 170, top: 525, isGlowing: false, touchedBy: [] },
+    { id: 20, left: 350, top: 172, isGlowing: false, touchedBy: [] },
+    { id: 21, left: 260, top: 456, isGlowing: false, touchedBy: [] },
+    { id: 22, left: 150, top: 590, isGlowing: false, touchedBy: [] },
+    { id: 23, left: 310, top: 388, isGlowing: false, touchedBy: [] },
+    { id: 24, left: 140, top: 134, isGlowing: false, touchedBy: [] },
+    { id: 25, left: 250, top: 251, isGlowing: false, touchedBy: [] },
     { id: 26, left: 160, top: 480, isGlowing: false, touchedBy: [] },
-    { id: 27, left: 170, top: 530, isGlowing: false, touchedBy: [] },
-    { id: 28, left: 270, top: 370, isGlowing: false, touchedBy: [] },
-    { id: 29, left: 200, top: 290, isGlowing: false, touchedBy: [] },
-    { id: 30, left: 240, top: 550, isGlowing: false, touchedBy: [] },
-    { id: 31, left: 390, top: 240, isGlowing: false, touchedBy: [] },
-    { id: 32, left: 340, top: 580, isGlowing: false, touchedBy: [] },
-    { id: 33, left: 260, top: 410, isGlowing: false, touchedBy: [] },
-    { id: 34, left: 150, top: 280, isGlowing: false, touchedBy: [] },
-    { id: 35, left: 180, top: 500, isGlowing: false, touchedBy: [] },
-    { id: 36, left: 380, top: 300, isGlowing: false, touchedBy: [] },
-    { id: 37, left: 210, top: 500, isGlowing: false, touchedBy: [] },
-    { id: 38, left: 250, top: 420, isGlowing: false, touchedBy: [] },
-    { id: 39, left: 170, top: 410, isGlowing: false, touchedBy: [] },
-];
+    { id: 27, left: 170, top: 529, isGlowing: false, touchedBy: [] },
+    { id: 28, left: 270, top: 280, isGlowing: false, touchedBy: [] },
+    { id: 29, left: 200, top: 427, isGlowing: false, touchedBy: [] },
+    { id: 30, left: 240, top: 176, isGlowing: false, touchedBy: [] },
+    { id: 31, left: 390, top: 244, isGlowing: false, touchedBy: [] },
+    { id: 32, left: 340, top: 378, isGlowing: false, touchedBy: [] },
+    { id: 33, left: 260, top: 590, isGlowing: false, touchedBy: [] },
+    { id: 34, left: 150, top: 307, isGlowing: false, touchedBy: [] },
+    { id: 35, left: 180, top: 564, isGlowing: false, touchedBy: [] },
+    { id: 36, left: 380, top: 492, isGlowing: false, touchedBy: [] },
+    { id: 37, left: 210, top: 245, isGlowing: false, touchedBy: [] },
+    { id: 38, left: 250, top: 326, isGlowing: false, touchedBy: [] },
+    { id: 39, left: 170, top: 185, isGlowing: false, touchedBy: [] }
+]
 
- // 豆データ
+
+
 let initialBeans = JSON.parse(JSON.stringify(beans)); // 初期状態をコピー
 const players = {}; // 各プレイヤーの位置情報
 const beanTimers = {}; // 各豆の時間を計測するオブジェクト
@@ -90,7 +91,7 @@ io.on("connection", (socket) => {
     socket.on("startGame", () => {
         if (!isGameRunning) { // ゲームがまだ実行中でない場合のみ開始
             isGameRunning = true;
-            let timeLeft = 2 * 60; // 2分（秒）
+            let timeLeft = 5 * 60; // 5分（秒）
 
             countdown = setInterval(() => {
                 timeLeft--;
