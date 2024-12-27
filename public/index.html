@@ -87,11 +87,6 @@
         top: 110px; /* 出力ボタンをスタートボタンの下に */
       }
 
-      #sound-button {
-        top: 160px; /* 出力ボタンをスタートボタンの下に */
-      }
-
-
       .button:hover {
         background-color: #0056b3;
       }
@@ -113,8 +108,6 @@
     <button id="start-button" class="button">スタート</button>
     <button id="output-button" class="button">出力</button>
     <button id="reset-button" class="button">リセット</button> <!-- リセットボタンを追加 -->
-    <button id="sound-button" class="button">音を鳴らす</button><!-- Sound ボタン -->
-
   </div>
   <script src="/socket.io/socket.io.js"></script>
   <script>
@@ -158,7 +151,6 @@
       startButton.style.backgroundColor = "yellow";
       startButton.style.color = "black"; // ボタン上のテキストを見やすくするため
       console.log("スタートボタンが押されました");
-
     });
 
     // サーバーからのタイマー更新を受け取る
