@@ -19,16 +19,24 @@
         height: 80%;
         position: relative;
         border: 2px solid black;
-        background-color: white;
+        background-color: #d2b48c; /* タンカラー：机のベースカラー */
+        background-image: url('adobe_wood.jpg'); /* 机の質感の背景画像を指定（ファイルがある場合） */
+        background-size: cover;
       }
+
     
       .bowl {
         width: 150px;
         height: 150px;
-        border: 2px solid black;
+        background-color: white;
+        border: 2px solid #ccc; /* 枠線の色を薄めにしてみる */
         border-radius: 50%;
         position: absolute;
         transform: translate(-50%, -50%);
+        /* 内側に軽い影を付けることで、奥行きを表現 */
+        box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+        /* 中心がやや暗く、外周が少し明るいグラデーション。'circle at 50% 40%' で光源が上にあるように調整*/  
+        background: radial-gradient(circle at 50% 40%, #e0e0e0, #fafafa 70%, #ffffff 100%);
       }
     
       /* #left-bowl {
@@ -46,7 +54,7 @@
       .bean {
         width: 30px;
         height: 30px;
-        background-color: brown;
+        background: radial-gradient(circle at 30% 30%, #8b4513, #5c3317);
         border-radius: 50%;
         position: absolute;
         transform: translate(-50%, -50%);
@@ -84,7 +92,7 @@
       }
 
       #reset-button {
-        top: 310px; /* 出力ボタンをスタートボタンの下に */
+        top: 110px; /* 出力ボタンをスタートボタンの下に */
       }
 
       #check-data-button {
@@ -113,7 +121,7 @@
     <button id="output-button" class="button">出力</button>
     <button id="reset-button" class="button">リセット</button> <!-- リセットボタンを追加 -->
     <button id="check-data-button" class="button">データチェック</button>
-    
+
   </div>
   <script src="/socket.io/socket.io.js"></script>
   <script>
@@ -134,7 +142,7 @@
     const socket = io();
     const container = document.getElementById("game-container");
     let beans = [];
-    
+
     const checkDataButton = document.getElementById("check-data-button");
 
     checkDataButton.addEventListener("click", () => {
@@ -145,6 +153,7 @@
     socket.on("sendCsvData", (data) => {
       console.log("受け取ったCSVデータ:", data);
     });
+
     // // タイマーで時間計測・時間指定
     // startButton.addEventListener("click", () => {
     //     console.log("ゲームスタート!");
@@ -167,7 +176,7 @@
       startButton.style.backgroundColor = "yellow";
       startButton.style.color = "black"; // ボタン上のテキストを見やすくするため
       console.log("スタートボタンが押されました");
-    });
+            });
 
     // サーバーからのタイマー更新を受け取る
     socket.on("updateTimer", (timeLeft) => {
@@ -182,7 +191,7 @@
       startButton.style.backgroundColor = "#007bff";
       startButton.style.color = "white"; // ボタン上のテキストを見やすくするため
       console.log("スタートボタンが押されました");
-      
+
     });
 
       // 出力ボタンを押された時
